@@ -7,6 +7,7 @@ import com.jw.bean.msg.WeChatMsgTextBean;
 import com.jw.bean.response.WeChatResponseBaseBean;
 import com.jw.factory.ResponseMsgBuilder;
 import com.jw.handler.impl.DefaultMsgReceiveHandler;
+import org.apache.commons.logging.Log;
 
 import java.io.File;
 
@@ -16,7 +17,7 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
 
     @Override
     public WeChatResponseBaseBean onReceiveMsgText(WeChatMsgTextBean msgBean, ResponseMsgBuilder builder) {
-        return builder.buildResponseImageBean(msgBean.getContent());
+        return builder.buildResponseTextBean(msgBean.getFromUserName() );
     }
 
     @Override
