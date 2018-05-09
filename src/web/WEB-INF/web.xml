@@ -12,9 +12,28 @@
         <servlet-name>WeChatServlet</servlet-name>
         <servlet-class>com.jw.servlet.WeChatServlet</servlet-class>
     </servlet>
+    
 
     <servlet-mapping>
         <servlet-name>WeChatServlet</servlet-name>
         <url-pattern>/mainservlet.action</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UploadImageServlet</servlet-name>
+        <servlet-class>com.demo.servlet.UploadImageServlet</servlet-class>
+        <init-param>
+            <param-name>filePathDir</param-name>
+            <param-value>storeImages</param-value>
+        </init-param>
+        <init-param>
+            <param-name>tempDir</param-name>
+            <param-value>tempDir</param-value>
+        </init-param>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>UploadImageServlet</servlet-name>
+        <url-pattern>/UploadImage.action</url-pattern>
     </servlet-mapping>
 </web-app>
