@@ -17,7 +17,7 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
 
     @Override
     public WeChatResponseBaseBean onReceiveMsgText(WeChatMsgTextBean msgBean, ResponseMsgBuilder builder) {
-        return builder.buildResponseTextBean(msgBean.getFromUserName() );
+        return builder.buildResponseImageBean(msgBean.getContent() );
     }
 
     @Override
