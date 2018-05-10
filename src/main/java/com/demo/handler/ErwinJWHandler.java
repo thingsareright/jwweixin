@@ -32,9 +32,25 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
             }else {
                 return builder.buildResponseTextBean("Register failed!");
             }
+        } else if("bind".equals(kindOfOrder)) {
+            //微信的文本应该是这样的：bind:123456:camera   bind:设备号:设备名
+            String temp = msgText.substring(msgText.indexOf(':'));
+            String facility_id = temp.substring(temp.indexOf(':')+1,temp.indexOf(':',1));
+            String facility_name = temp.substring(temp.indexOf(':',facility_id.length())+1);
+            int flag = doBindAction(facility_id,facility_name,fromUserName);
+            if(1 == flag)
+                return builder.buildResponseTextBean("bind " + facility_id + " successfully!");
+            else if (2 == flag)
+                return builder.buildResponseTextBean("Oh! You haven't registered! Please do it before you bind our facilities!");
+            else if (3 == flag)
+                return builder.buildResponseTextBean("Sorry! The facility has already been binded!");
+            else
+                return builder.buildResponseTextBean("Bind failed! Please try it again!");
         }
         return builder.buildResponseTextBean("failed!");
     }
+
+
 
     @Override
     public WeChatResponseBaseBean onReceiveMsgImage(WeChatImageBean msgBean, ResponseMsgBuilder builder) {
@@ -59,5 +75,33 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
                 return 1;   //注册成功
         }
         return 2;   //注册失败
+    }
+
+    /**
+     * 判断数据库里有没有该设备的绑定信息，有的话就放弃绑定，否则再进行绑定
+     * @param facility_id
+     * @param facility_name
+     * @param fromUserName
+     * @return
+     */
+    private int doBindAction(String facility_id, String facility_name, String fromUserName) {
+        //先判断是否已经注册了
+        Integer flag = doRegisterAction(fromUserName);
+        if (2 == flag)
+            return 2;   //绑定设备时发现注册失败
+        //这个时候已经注册了，现在我们开始绑定设备
+        MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
+        String sql = "SELECT * FROM facility WHERE fac_id = \"" + facility_id + "\"";
+        flag = (Integer) myDbUtil.doDataSelect(sql,"incre_id");
+        if (null == flag){
+            sql = "INSERT INTO facility(user_id,fac_id,fac_name,fac_old_state,fac_kind) VALUES(\"" + fromUserName + "\"," +
+                    facility_id + ",\"" + facility_name + "\"," + 0 + "," + 1 + ")";
+            flag = (Integer)myDbUtil.doDataChange(sql);
+            if(1 == flag)
+                return 1;   //绑定成功
+        }else
+            return 3;   //设备已经被绑定
+
+        return 0;   //绑定失败
     }
 }
