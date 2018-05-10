@@ -15,6 +15,11 @@ import java.sql.Timestamp;
 
 public class ErwinJWHandler extends DefaultMsgReceiveHandler{
 
+    public final static int ACTION_IROFF_CAMERAOFF = 0;
+    public final static int ACTION_IRON_CAMERAOFF = 1;
+    public final static int ACTION_IROFF_CAMERAON = 2;
+    public final static int ACTION_IRON_CAMERAON = 3;
+
     private  MaterialApi materialApi = new DefaultMateralApi();
 
     @Override
@@ -46,10 +51,30 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
                 return builder.buildResponseTextBean("Sorry! The facility has already been binded!");
             else
                 return builder.buildResponseTextBean("Bind failed! Please try it again!");
+        } else if("order".equals(kindOfOrder)){
+            int flag = 0;
+            flag = doOrderAction(msgText);
+            if(1 == flag)
+                return builder.buildResponseTextBean("Order Get!");
+            else
+                return builder.buildResponseTextBean("Order failed!");
         }
         return builder.buildResponseTextBean("failed!");
     }
 
+    private int doOrderAction(String msgText) {
+        //微信的文本应该是这样的：bind:fac:1   bind:设备名:命令状态
+        MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
+        String temp = msgText.substring(msgText.indexOf(':'));
+        String facility_name = temp.substring(temp.indexOf(':')+1,temp.indexOf(':',1));
+        String facility_new_state = temp.substring(temp.indexOf(':',facility_name.length())+1);
+        final int new_state = Integer.parseInt(facility_new_state);
+        String sql = "UPDATE facility SET fac_new_state = " + facility_new_state + " where fac_name = \"" + facility_name + "\"";
+        Integer flag = (Integer) myDbUtil.doDataChange(sql);
+        if(null == flag)
+            return 2;   //更新失败
+        return 1;   //更新成功
+    }
 
 
     @Override
