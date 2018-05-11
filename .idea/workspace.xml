@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9c9786e-f1b1-4da3-a39d-ad29002e921b" name="Default" comment="完成了绑定功能。">
+    <list default="true" id="a9c9786e-f1b1-4da3-a39d-ad29002e921b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -505,7 +505,7 @@
       <workItem from="1525874153784" duration="3536000" />
       <workItem from="1525948501438" duration="14912000" />
       <workItem from="1525996953924" duration="5732000" />
-      <workItem from="1526003761820" duration="50000" />
+      <workItem from="1526003761820" duration="161000" />
     </task>
     <task id="LOCAL-00001" summary="这一次主要是加入了基于JDBC的数据封装接口。">
       <created>1525704493770</created>
@@ -577,11 +577,18 @@
       <option name="project" value="LOCAL" />
       <updated>1526002223518</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="完成了绑定功能。">
+      <created>1526003839514</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1526003839514</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65069000" />
+    <option name="totallyTimeSpent" value="65180000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -638,10 +645,10 @@
     <MESSAGE value="这是失败的四小时，这四小时没有取得什么进展，只让我知道了HTTP协议的定义。下一步还是使用传统的图片上传比较好。" />
     <MESSAGE value="这次加入了图片上传，基本完工，但是还没有加入数据库的交互。而且还没有优化，周四把微信的基本逻辑加里面，周五开始搞数据库的交互。" />
     <MESSAGE value="注册功能实现。" />
-    <MESSAGE value="完成了绑定功能。" />
     <MESSAGE value="把更改机器状态也搞好了。" />
     <MESSAGE value="微信的功能已经完成了，下面就是要弄安定诺那个鬼玩意了。" />
-    <option name="LAST_COMMIT_MESSAGE" value="微信的功能已经完成了，下面就是要弄安定诺那个鬼玩意了。" />
+    <MESSAGE value="完成了绑定功能。" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了绑定功能。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
