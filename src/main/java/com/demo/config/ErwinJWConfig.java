@@ -7,7 +7,7 @@ import com.jw.handler.MsgReceiveHandler;
 public class ErwinJWConfig extends SimpleJwConfig {
 
     public String getToken() {
-        return "";
+        return "tokenDemo";
     }
 
     public String getAppId() {
