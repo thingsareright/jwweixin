@@ -1,9 +1,6 @@
 package com.demo.util;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * 这个类用于进行基本的数据库操作，用户可以通过实现内部类（继承接口）来完成对数据库的操作，这样显得封装性更好
@@ -63,7 +60,7 @@ public class MyDatabaseUtil  {
     private Object executeSqlStringChange(String s){
         Connection conn = null;
         PreparedStatement preparedStatement = null;
-        int i = 0;
+        Object i = 0;
         try {
             conn = getConnection();
             preparedStatement = conn.prepareStatement(s);
@@ -87,13 +84,13 @@ public class MyDatabaseUtil  {
         Connection conn = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        String result = null;
+        Object result = null;
         try {
             conn = getConnection();
             preparedStatement = conn.prepareStatement(s);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                result = resultSet.getString(thing);
+                result = resultSet.getObject(thing);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -105,34 +102,33 @@ public class MyDatabaseUtil  {
         return result;
     }
 
-    public MyDbUtil getQueryDb(){
+    public MyDbUtil getMyDaUtilImpl(){
         return new MyDbUtil() {
-            public Object doDataWork(String[] s) {
-                return executeSqlStringQuery(s[0],s[1]);
+
+
+            public Object doDataSelect(String s1, String s2) {
+                return executeSqlStringQuery(s1, s2);
+            }
+
+            public Object doDataChange(String s) {
+                return executeSqlStringChange(s);
             }
         };
     }
 
-    public MyDbUtil getChangeDb() {
-        return new MyDbUtil() {
-            public Object doDataWork(String[] s) {
-                return executeSqlStringChange(s[0]);
-            }
-        };
-    }
 
 
     public static void main(String [] args){
-        MyDatabaseUtil databaseUtil = new MyDatabaseUtil();
-        String query = "SELECT * FROM jw_user";
-        try {
-            String[] strings = {query,"user_id"};
-            String s = (String) databaseUtil.getQueryDb().doDataWork(strings);
-            System.out.println(s);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String[] change = {"update facility set facility_state = 0"};
-        System.out.println(databaseUtil.getChangeDb().doDataWork(change));
+        String msgText = "unbind:fac";
+        String fromUserName = "o1ETFw2Nrp8SVZPlYe0Zl6w0h9mw";
+        Integer flag = null;
+        MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
+        String facility_name = msgText.substring(msgText.indexOf(':')+1);   //用户要解绑定的设备名
+        //微信的文本应该是这样的：order:fac:1   order:设备名:命令状态
+        String sql = "DELETE FROM facility WHERE fac_name = \"" + facility_name + "\" and user_id = \"" +
+                fromUserName + "\"";
+        System.out.println(sql);
+        flag = (Integer)myDbUtil.doDataChange(sql);
+        System.out.println(flag);
     }
 }
