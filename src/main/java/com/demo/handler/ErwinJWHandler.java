@@ -74,7 +74,7 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
                 return builder.buildResponseTextBean("Bind failed! Please try it again!");
         } else if("order".equals(kindOfOrder)){
             int flag = 0;
-            flag = doOrderAction(msgText);
+            flag = doOrderAction(msgText,fromUserName);
             if(1 == flag)
                 return builder.buildResponseTextBean("Order Get!");
             else
@@ -113,19 +113,34 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
         String sql = "DELETE FROM facility WHERE fac_name = \"" + facility_name + "\" and user_id = \"" +
                 fromUserName + "\"";
         flag = (Integer)myDbUtil.doDataChange(sql);
+        if (null == flag)
+            return 0;
         if(1 == flag)
             return 1;   //解除绑定成功
         return 0;
     }
 
-    private int doOrderAction(String msgText) {
-        //微信的文本应该是这样的：order:fac:1   order:设备名:命令状态
+    private int doOrderAction(String msgText,String fromUserName) {
+        //微信的文本应该是这样的：order:fac:light:1   order:设备名:设备功能类型:设备状态改变
         MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
         String temp = msgText.substring(msgText.indexOf(':'));
-        String facility_name = temp.substring(temp.indexOf(':')+1,temp.indexOf(':',1));
-        String facility_new_state = temp.substring(temp.indexOf(':',facility_name.length())+1);
-        final int new_state = Integer.parseInt(facility_new_state);
-        String sql = "UPDATE facility SET fac_new_state = " + facility_new_state + " where fac_name = \"" + facility_name + "\"";
+        String facility_name = temp.substring(1,temp.indexOf(':',1));
+        temp = temp.substring(temp.indexOf(':',facility_name.length())+1);
+        String fac_action_type = temp.substring(0,temp.indexOf(':'));
+        String fac_action_state = temp.substring(temp.indexOf(':')+1);
+        String sql = null;
+        if("light".equals(fac_action_type)){
+            sql = "UPDATE facility SET fac_light_state = " + fac_action_state + " ";
+        } else if ("lr".equals(fac_action_type)) {
+            //红外
+            sql = "UPDATE facility SET fac_lr_state = " + fac_action_state + " ";
+        } else if("camera".equals(fac_action_type)) {
+            sql = "UPDATE facility SET fac_camera_state = "+ fac_action_state + " ";
+        } else if("em".equals(fac_action_type)){
+            //电机
+            sql = "UPDATE facility SET fac_em_state = " + fac_action_state + " ";
+        }
+        sql += "WHERE fac_name = \"" + facility_name + "\" and user_id = \"" + fromUserName + "\"";
         Integer flag = (Integer) myDbUtil.doDataChange(sql);
         if(null == flag)
             return 2;   //更新失败
@@ -143,10 +158,10 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
         String sql = "SELECT * FROM jw_user WHERE user_id =  \"" + fromUserName + "\"";  //TODO 没有添加SQL防注入
         MyDatabaseUtil databaseUtil = new MyDatabaseUtil();
         MyDbUtil myDbUtil = databaseUtil.getMyDaUtilImpl();
-        Integer flag = ((Integer) myDbUtil.doDataSelect(sql, "incre_id")).intValue();
+        Integer flag = ((Integer) myDbUtil.doDataSelect(sql, "incre_id"));
         if (null == flag){
-            int secFlag = ((Integer)myDbUtil.doDataChange("insert into jw_user(user_id) values(\"" + fromUserName + "\")")).intValue();
-            if(1 == secFlag)
+            Integer secFlag = ((Integer)myDbUtil.doDataChange("insert into jw_user(user_id) values(\"" + fromUserName + "\")")).intValue();
+            if(secFlag != null && 1 == secFlag)
                 return 1;   //注册成功
         }else if(1 <= flag.intValue())
             return 0;   //已经注册
@@ -175,9 +190,11 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
         String sql = "SELECT * FROM facility WHERE fac_id = \"" + facility_id + "\"";
         flag = (Integer) myDbUtil.doDataSelect(sql,"incre_id");
         if (null == flag){
-            sql = "INSERT INTO facility(user_id,fac_id,fac_name,fac_old_state,fac_kind) VALUES(\"" + fromUserName + "\"," +
-                    facility_id + ",\"" + facility_name + "\"," + 0 + "," + 1 + ")";
+            sql = "INSERT INTO facility(user_id,fac_id,fac_name) VALUES(\"" + fromUserName + "\"," +
+                    facility_id + ",\"" + facility_name + "\")";
             flag = (Integer)myDbUtil.doDataChange(sql);
+            if (null == flag)
+                return 0;   //防止BUG
             if(1 == flag)
                 return 1;   //绑定成功
         }else
