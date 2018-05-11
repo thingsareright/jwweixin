@@ -1,5 +1,6 @@
 package com.demo.handler;
 
+import com.demo.util.ConstantUtil;
 import com.demo.util.MyDatabaseUtil;
 import com.demo.util.MyDbUtil;
 import com.jw.api.MaterialApi;
@@ -7,8 +8,10 @@ import com.jw.api.impl.DefaultMateralApi;
 import com.jw.bean.msg.WeChatImageBean;
 import com.jw.bean.msg.WeChatMsgTextBean;
 import com.jw.bean.response.WeChatResponseBaseBean;
+import com.jw.bean.response.WeChatResponseTextBean;
 import com.jw.factory.ResponseMsgBuilder;
 import com.jw.handler.impl.DefaultMsgReceiveHandler;
+import org.apache.commons.logging.Log;
 
 import java.io.File;
 import java.sql.Timestamp;
@@ -21,12 +24,30 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
     public final static int ACTION_IRON_CAMERAON = 3;
 
     private  MaterialApi materialApi = new DefaultMateralApi();
+    private static final String HELP_MSG = "欢迎！\r\n" +
+            "注册请输入：    register:\r\n"
+            + "绑定设备请输入：  bind:设备号:设备名\r\n" +
+            "解除绑定设备请输入： unbind:设备名\r\n" +
+            "查看某设备拍的最新的照片：picture:fac   picture:设备名\r\n" +
+            "更改设备状态请输入： order:fac:1   order:设备名:命令状态\r\n" +
+            "设备状态代码意义：\r\n" +
+                    "0：关闭红外和摄像头\r\n" +
+            "1:开启红外关闭摄像头\r\n" +
+            "2:关闭红外开启摄像头\r\n" +
+            "3:开启红外和摄像头\r\n" +
+            "注意：所用冒号均为英文输入的冒号，且不可省略。";
 
     @Override
     public WeChatResponseBaseBean onReceiveMsgText(WeChatMsgTextBean msgBean, ResponseMsgBuilder builder) {
         String msgText = msgBean.getContent();      //用户发来的信息
         String fromUserName = msgBean.getFromUserName();    //用户ID
-        String kindOfOrder = msgText.substring(0, msgText.indexOf(':'));//用户冒号前的指令信息
+        String kindOfOrder; //用户命令
+        try {
+            kindOfOrder = msgText.substring(0, msgText.indexOf(':'));//用户冒号前的指令信息
+        } catch (Exception e){
+            return builder.buildResponseTextBean("没有冒号啊小伙子小姑娘，我给你讲讲道理：\r\n" + HELP_MSG);
+        }
+
 
         if("register".equals(kindOfOrder)){
             int flag = doRegisterAction(fromUserName);
@@ -58,12 +79,47 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
                 return builder.buildResponseTextBean("Order Get!");
             else
                 return builder.buildResponseTextBean("Order failed!");
+        } else if ("unbind".equals(kindOfOrder)) {
+            int flag = doUnBindAction(msgText,msgBean.getFromUserName());
+            //微信的文本应该是这样的：unbind:camera   bind:设备名
+            if(1 == flag)
+                return builder.buildResponseTextBean("Unbind facility successfully!");
+            else
+                return builder.buildResponseTextBean("You fail to unbind the facility!");
+        } else if("help".equals(kindOfOrder)){
+            return builder.buildResponseTextBean(HELP_MSG);
+        } else if("picture".equals(kindOfOrder)){
+            //picture:fac
+            String filePath;
+            filePath = doPictureAction(msgText, msgBean.getFromUserName());
+            WeChatResponseTextBean media = builder.buildResponseTextBean(materialApi.addTempMedia(MaterialApi.IMAGE, new File(filePath)));
+            String tempMediaCode = media.getContent();
+            return builder.buildResponseImageBean(tempMediaCode);
+        } else {
+            return builder.buildResponseTextBean(HELP_MSG);
         }
-        return builder.buildResponseTextBean("failed!");
+    }
+
+    private String doPictureAction(String msgText, String fromUserName) {
+        String facility_name = msgText.substring(msgText.indexOf(':') + 1);
+        String filePath = ConstantUtil.IMAGE_DIR + "/" + facility_name + fromUserName + ".jpg";
+        return filePath;
+    }
+
+    private int doUnBindAction(String msgText,String fromUserName) {
+        Integer flag = null;
+        MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
+        String facility_name = msgText.substring(msgText.indexOf(':')+1);   //用户要解绑定的设备名
+        String sql = "DELETE FROM facility WHERE fac_name = \"" + facility_name + "\" and user_id = \"" +
+                fromUserName + "\"";
+        flag = (Integer)myDbUtil.doDataChange(sql);
+        if(1 == flag)
+            return 1;   //解除绑定成功
+        return 0;
     }
 
     private int doOrderAction(String msgText) {
-        //微信的文本应该是这样的：bind:fac:1   bind:设备名:命令状态
+        //微信的文本应该是这样的：order:fac:1   order:设备名:命令状态
         MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
         String temp = msgText.substring(msgText.indexOf(':'));
         String facility_name = temp.substring(temp.indexOf(':')+1,temp.indexOf(':',1));
