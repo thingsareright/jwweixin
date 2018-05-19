@@ -90,11 +90,10 @@ public class AuthService {
     }
 
     public static AipFace getAirFace() {
-
         return client;
     }
 
-    public static void detect(AipFace client, String image /*这里是BASE64字符串*/) {
+    public static int detect(AipFace client, String image /*这里是BASE64字符串*/) {
         // 传入可选参数调用接口
         HashMap<String, String> options = new HashMap<String, String>();
         options.put("face_field", "age");
@@ -108,13 +107,20 @@ public class AuthService {
         // 人脸检测
         JSONObject res = client.detect(image, imageType, options);
         System.out.println(res.toString(2));
-
+        String s = res.toString(2);
+        String peopleNum = WeatherUtil.splitData(s,"face_num\":", ",").trim();
+        System.out.println(peopleNum);
+        return Integer.parseInt(peopleNum);   //TODO
     }
 
 
 
     public static void main(String[] args) {
-        detect(client,"jdasd");
+        String filePath = "G:\\image\\o1ETFw2Nrp8SVZPlYe0Zl6w0h9mwfac.jpg";
+        String baseImage64 = FileUtil.GetImageStr(filePath);
+        int flag = AuthService.detect(AuthService.getAirFace(), baseImage64);
+        System.out.println("***" + flag);
+
     }
 
 

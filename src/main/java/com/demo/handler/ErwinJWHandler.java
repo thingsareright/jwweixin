@@ -1,8 +1,6 @@
 package com.demo.handler;
 
-import com.demo.util.ConstantUtil;
-import com.demo.util.MyDatabaseUtil;
-import com.demo.util.MyDbUtil;
+import com.demo.util.*;
 import com.jw.api.MaterialApi;
 import com.jw.api.impl.DefaultMateralApi;
 import com.jw.bean.msg.WeChatImageBean;
@@ -11,10 +9,8 @@ import com.jw.bean.response.WeChatResponseBaseBean;
 import com.jw.bean.response.WeChatResponseTextBean;
 import com.jw.factory.ResponseMsgBuilder;
 import com.jw.handler.impl.DefaultMsgReceiveHandler;
-import org.apache.commons.logging.Log;
-
+import com.demo.util.AuthService;
 import java.io.File;
-import java.sql.Timestamp;
 
 public class ErwinJWHandler extends DefaultMsgReceiveHandler{
 
@@ -95,8 +91,38 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
             WeChatResponseTextBean media = builder.buildResponseTextBean(materialApi.addTempMedia(MaterialApi.IMAGE, new File(filePath)));
             String tempMediaCode = media.getContent();
             return builder.buildResponseImageBean(tempMediaCode);
-        } else {
+        } else if("face".equals(kindOfOrder)){
+            //判断上一张照片是不是有人脸
+            int hasFace = doFaceDetectAction(fromUserName, msgText);
+            int i = hasFace;
+
+            if (0 != hasFace)
+                return builder.buildResponseTextBean("有" + hasFace + "张人脸！");
+            return builder.buildResponseTextBean("没有人脸！！！");
+        }else {
             return builder.buildResponseTextBean(HELP_MSG);
+        }
+    }
+
+    private int doFaceDetectAction(String fromUserName, String msgText) {
+        try {
+            String fac_name = msgText.substring(msgText.indexOf(':') + 1);
+            String filePath = ConstantUtil.IMAGE_DIR + "/"  + fromUserName  + fac_name + ".jpg";
+            String baseImage64 = FileUtil.GetImageStr(filePath);
+            if (null == baseImage64){
+                return 0;
+            }
+            int flag = 0;
+            try {
+                flag = AuthService.detect(AuthService.getAirFace(), baseImage64);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+            if (1 <= flag)
+                return flag;
+            return 0;
+        }catch (Exception e){
+            return 0;
         }
     }
 
@@ -155,7 +181,7 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
 
     private int doRegisterAction(final String fromUserName) //先判断数据库里有没有存储相关信息，没有的话就自动的将用户信息存到数据库里
     {
-        String sql = "SELECT * FROM jw_user WHERE user_id =  \"" + fromUserName + "\"";  //TODO 没有添加SQL防注入
+        String sql = "SELECT * FROM jw_user WHERE user_id =  \"" + fromUserName + "\"";
         MyDatabaseUtil databaseUtil = new MyDatabaseUtil();
         MyDbUtil myDbUtil = databaseUtil.getMyDaUtilImpl();
         Integer flag = ((Integer) myDbUtil.doDataSelect(sql, "incre_id"));

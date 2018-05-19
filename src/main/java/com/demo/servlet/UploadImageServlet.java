@@ -92,7 +92,8 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
         //我们以用户的唯一标识加硬件设备名称作为唯一ID存储图片
         //从数据库获取用户唯一标识
         String fromUserName = (String) myDbUtil.doDataSelect("SELECT * FROM facility WHERE fac_id = " + fac_id, "user_id");
-        File uploadedFile = new File(filePathDir + "/" + fromUserName + fac_id + ".jpg");
+        String fac_name = (String) myDbUtil.doDataSelect("SELECT * FROM facility WHERE fac_id = " + fac_id, "fac_name");
+        File uploadedFile = new File(filePathDir + "/" + fromUserName + fac_name + ".jpg");
         try {
             item.write(uploadedFile);
         } catch (Exception e) {
