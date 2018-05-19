@@ -65,13 +65,20 @@ public class FacilityServlet extends HttpServlet {
         logger.info(sql);
         MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
         int[] ints = new int[5];
-        ints[0] = Integer.parseInt((myDbUtil.doDataSelect(sql,FAC_LIGHT_STATE).toString()));    //为0表示设备上的灯应该是关着的状态，为1表示设备上灯应该是开着的状态
-        ints[1] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_LR_STATE).toString());
-        ints[2] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_CAMERA_STATE).toString());
-        ints[3] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_EM_STATE).toString());
-        //通过最后的设置，来增加天气API的权限
-        ints[3] = WeatherUtil.getWeatherState();
-        return ints;
+        try {
+            ints[0] = Integer.parseInt((myDbUtil.doDataSelect(sql,FAC_LIGHT_STATE).toString()));    //为0表示设备上的灯应该是关着的状态，为1表示设备上灯应该是开着的状态
+            ints[1] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_LR_STATE).toString());
+            ints[2] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_CAMERA_STATE).toString());
+            ints[3] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_EM_STATE).toString());
+            //通过最后的设置，来增加天气API的权限
+            ints[3] = WeatherUtil.getWeatherState();
+            return ints;
+        } catch (Exception e){
+            e.printStackTrace();
+            for(int i =0; i<ints.length; i++)
+                ints[i] = 0;
+            return ints;
+        }
     }
 
     /**
