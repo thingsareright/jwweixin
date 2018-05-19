@@ -46,10 +46,23 @@
             <param-name>tempDir</param-name>
             <param-value>tempDir</param-value>
         </init-param>
+        <init-param>
+            <param-name>fileMaxSize</param-name>
+            <param-value>10240000</param-value>
+        </init-param>
     </servlet>
-    
+
     <servlet-mapping>
         <servlet-name>UploadImageServlet</servlet-name>
         <url-pattern>/UploadImage.action</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FacilityServlet</servlet-name>
+        <servlet-class>com.demo.servlet.FacilityServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FacilityServlet</servlet-name>
+        <url-pattern>/FacilityServlet</url-pattern>
     </servlet-mapping>
 </web-app>

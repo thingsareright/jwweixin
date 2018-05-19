@@ -8,8 +8,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +20,10 @@ import java.util.List;
  */
 public class FacilityServlet extends HttpServlet {
 
-    private final String FAC_LIGHT_STATE = "fac_light_state";
-    private final String FAC_LR_STATE = "fac_lr_state";
-    private final String FAC_CAMERA_STATE = "fac_camera_state";
-    private final String FAC_EM_STATE = "fac_em_state";
+    private final String FAC_LIGHT_STATE = "fac_light_state";   //设备灯的状态
+    private final String FAC_LR_STATE = "fac_lr_state"; //设备红外开关状态
+    private final String FAC_CAMERA_STATE = "fac_camera_state"; //设备摄像头开关状态
+    private final String FAC_EM_STATE = "fac_em_state"; //设备电机开关状态
 
     private final Logger logger = Logger.getLogger(FacilityServlet.class);
 
@@ -39,10 +41,12 @@ public class FacilityServlet extends HttpServlet {
             int[] whatToDoForFac = new int[5];  //用于指示单片机应该干什么，具体包括灯光、红外、摄像头、电机
             whatToDoForFac = doSelectForWhatToDo(fac_id);
             OutputStream stream = response.getOutputStream();
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(stream));
             logger.info(stream);
             for (int s: whatToDoForFac) {
-                stream.write(s);
+                bufferedWriter.write(s + "");
             }
+            bufferedWriter.flush();
             stream.close();
         } catch (NumberFormatException e) {
             logger.error("Facid: " + fac_id + " has an error.", e);
@@ -60,7 +64,7 @@ public class FacilityServlet extends HttpServlet {
         logger.info(sql);
         MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
         int[] ints = new int[5];
-        ints[0] = Integer.parseInt((myDbUtil.doDataSelect(sql,FAC_LIGHT_STATE).toString()));
+        ints[0] = Integer.parseInt((myDbUtil.doDataSelect(sql,FAC_LIGHT_STATE).toString()));    //为0表示设备上的灯应该是关着的状态，为1表示设备上灯应该是开着的状态
         ints[1] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_LR_STATE).toString());
         ints[2] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_CAMERA_STATE).toString());
         ints[3] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_EM_STATE).toString());

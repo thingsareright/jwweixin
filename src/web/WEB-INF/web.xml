@@ -46,6 +46,10 @@
             <param-name>tempDir</param-name>
             <param-value>tempDir</param-value>
         </init-param>
+        <init-param>
+            <param-name>fileMaxSize</param-name>
+            <param-value>10240000</param-value>
+        </init-param>
     </servlet>
 
     <servlet-mapping>

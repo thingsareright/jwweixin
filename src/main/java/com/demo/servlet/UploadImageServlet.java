@@ -1,5 +1,7 @@
 package com.demo.servlet;
 
+import com.demo.util.MyDatabaseUtil;
+import com.demo.util.MyDbUtil;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -21,11 +23,14 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
     public static final String UPLOADED_IMAGE_DIR = "G:/";
     private String filePathDir;     //这里存储的是文件夹相对web应用跟目录的路径，目的是为了固定相对路径
     private String tempDir; //临时路径
+    private int fileMaxSize;   //允许上传
+    private static MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         filePathDir = config.getInitParameter("filePathDir");   //在web.xml里已经设定好了路径
+        fileMaxSize = Integer.valueOf(config.getInitParameter("fileMaxSize"));
         //tempDir = config.getInitParameter("tempDir");
         filePathDir = UPLOADED_IMAGE_DIR + filePathDir;
     }
@@ -40,23 +45,25 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
             //创建一个基于硬盘的FileItem工厂
             DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
             //设定向硬盘写数据的缓冲区大小
-            fileItemFactory.setSizeThreshold(100 * 1024);
+            fileItemFactory.setSizeThreshold(fileMaxSize);
             //设置临时目录
             //fileItemFactory.setRepository(new File(tempDir));
             //创建一个文件上传处理器
             ServletFileUpload servletFileUpload = new ServletFileUpload(fileItemFactory);
             //设置允许上传的文件的最大尺寸
-            servletFileUpload.setSizeMax(100 * 1024);
+            servletFileUpload.setSizeMax(fileMaxSize);
 
             try {
                 List<FileItem> fileItems = servletFileUpload.parseRequest(req);
                 Iterator iter = fileItems.iterator();
+                String fac_id = null;
                 while (iter.hasNext()) {
                     FileItem item = (FileItem) iter.next();
                     if(item.isFormField()){
-                        processFormField(item,outNet);
+                        fac_id = processFormField(item,outNet);
                     } else {
-                        processUploadedField(item,outNet);
+                        if (null != fac_id)
+                            processUploadedField(item,outNet,fac_id);
                     }
                 }
                 outNet.close();
@@ -68,16 +75,24 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
         }
     }
 
-    private void processFormField(FileItem item, PrintWriter outNet) {
+    private String processFormField(FileItem item, PrintWriter outNet) {
         String name = item.getFieldName();  //获得表单域的名字
         String value = item.getString();    //获得表单域的值
-        outNet.println(name + ": " + value + "\r\n");
+        if ("facility".equals(name)){
+            return value;
+        }
+        else {
+            return null;
+        }
     }
 
-    private void processUploadedField(FileItem item, PrintWriter outNet){
+    private void processUploadedField(FileItem item, PrintWriter outNet, String fac_id){
         long fileSize = item.getSize();
         if(0 == fileSize) return;
-        File uploadedFile = new File(filePathDir + "/" + "token1.jpg");
+        //我们以用户的唯一标识加硬件设备名称作为唯一ID存储图片
+        //从数据库获取用户唯一标识
+        String fromUserName = (String) myDbUtil.doDataSelect("SELECT * FROM facility WHERE fac_id = " + fac_id, "user_id");
+        File uploadedFile = new File(filePathDir + "/" + fromUserName + fac_id + ".jpg");
         try {
             item.write(uploadedFile);
         } catch (Exception e) {

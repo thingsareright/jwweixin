@@ -4,9 +4,11 @@ import com.demo.util.ConstantUtil;
 
 public class TestFun {
     public static void main(String[] args){
-        String msgText = "fpictureac";
-        String facility_name = msgText.substring(0,msgText.indexOf(':'));
+        String sql = "UPDATE facility SET fac_camera_state = "+ 1 + " ";
+        sql += "WHERE fac_name = \"" + "fac" + "\" and user_id = \"" + "dad" + "\"";
+        System.out.println(sql);
 
-        System.out.println(facility_name);
+
+
     }
 }

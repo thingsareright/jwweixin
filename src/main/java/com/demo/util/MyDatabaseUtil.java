@@ -103,8 +103,7 @@ public class MyDatabaseUtil  {
     }
 
     public MyDbUtil getMyDaUtilImpl(){
-        return new MyDbUtil() {
-
+         return  new MyDbUtil() {
 
             public Object doDataSelect(String s1, String s2) {
                 return executeSqlStringQuery(s1, s2);
