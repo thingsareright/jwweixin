@@ -2,6 +2,7 @@ package com.demo.servlet;
 
 import com.demo.util.MyDatabaseUtil;
 import com.demo.util.MyDbUtil;
+import com.demo.util.WeatherUtil;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -68,6 +69,8 @@ public class FacilityServlet extends HttpServlet {
         ints[1] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_LR_STATE).toString());
         ints[2] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_CAMERA_STATE).toString());
         ints[3] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_EM_STATE).toString());
+        //通过最后的设置，来增加天气API的权限
+        ints[3] = WeatherUtil.getWeatherState();
         return ints;
     }
 
