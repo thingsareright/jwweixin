@@ -8,6 +8,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.impl.Log4JLogger;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -25,7 +26,8 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
     private String tempDir; //临时路径
     private int fileMaxSize;   //允许上传
     private static MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
-
+    private final Logger logger = Logger.getLogger(FacilityServlet.class);
+    private static final String TAGNAME = "UPLOADIMAGESERVLET";
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
@@ -41,6 +43,14 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
         //定义向客户端发送响应正文的outNet
         PrintWriter outNet = resp.getWriter();
         resp.setCharacterEncoding("UTF-8");
+        char[] strings = new char[1024];
+        /*BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(req.getInputStream()));
+        StringBuilder stringBuilder = new StringBuilder();
+        while (0 < bufferedReader.read(strings)){
+            stringBuilder.append(strings);
+
+        }
+        logger.info("***" +stringBuilder.toString()  + "***\n");*/
         try {
             //创建一个基于硬盘的FileItem工厂
             DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
@@ -58,6 +68,7 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
                 Iterator iter = fileItems.iterator();
                 String fac_id = null;
                 while (iter.hasNext()) {
+                    logger.error("***" + TAGNAME + " wlk");
                     FileItem item = (FileItem) iter.next();
                     if(item.isFormField()){
                         fac_id = processFormField(item,outNet);

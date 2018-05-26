@@ -71,7 +71,7 @@ public class FacilityServlet extends HttpServlet {
             ints[2] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_CAMERA_STATE).toString());
             ints[3] = Integer.parseInt(myDbUtil.doDataSelect(sql,FAC_EM_STATE).toString());
             //通过最后的设置，来增加天气API的权限
-            ints[3] = WeatherUtil.getWeatherState();
+            //ints[3] = WeatherUtil.getWeatherState();
             return ints;
         } catch (Exception e){
             e.printStackTrace();

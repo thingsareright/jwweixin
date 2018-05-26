@@ -39,6 +39,7 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
         String fromUserName = msgBean.getFromUserName();    //用户ID
         String kindOfOrder; //用户命令
         try {
+            msgText = msgText.toLowerCase();
             kindOfOrder = msgText.substring(0, msgText.indexOf(':'));//用户冒号前的指令信息
         } catch (Exception e){
             return builder.buildResponseTextBean("没有冒号啊小伙子小姑娘，我给你讲讲道理：\r\n" + HELP_MSG);
@@ -128,7 +129,7 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
 
     private String doPictureAction(String msgText, String fromUserName) {
         String facility_name = msgText.substring(msgText.indexOf(':') + 1);
-        String filePath = ConstantUtil.IMAGE_DIR + "/" + facility_name + fromUserName + ".jpg";
+        String filePath = ConstantUtil.IMAGE_DIR + "/"  + fromUserName + facility_name + ".jpg";
         return filePath;
     }
 
