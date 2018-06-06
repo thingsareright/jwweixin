@@ -1,5 +1,6 @@
 package com.demo.servlet;
 
+import com.demo.util.BodyDetect;
 import com.demo.util.MyDatabaseUtil;
 import com.demo.util.MyDbUtil;
 import org.apache.commons.fileupload.FileItem;
@@ -26,7 +27,6 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
     private String tempDir; //临时路径
     private int fileMaxSize;   //允许上传
     private static MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
-    private final Logger logger = Logger.getLogger(FacilityServlet.class);
     private static final String TAGNAME = "UPLOADIMAGESERVLET";
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -39,10 +39,11 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/plain");
         //定义向客户端发送响应正文的outNet
+        resp.setContentType("Appliation/Json");
+        resp.setCharacterEncoding("UTF8");
         PrintWriter outNet = resp.getWriter();
-        resp.setCharacterEncoding("UTF-8");
+        String myResult = "";    //存放返回的数据JSON格式
         char[] strings = new char[1024];
         /*BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(req.getInputStream()));
         StringBuilder stringBuilder = new StringBuilder();
@@ -68,13 +69,17 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
                 Iterator iter = fileItems.iterator();
                 String fac_id = null;
                 while (iter.hasNext()) {
-                    logger.error("***" + TAGNAME + " wlk");
                     FileItem item = (FileItem) iter.next();
                     if(item.isFormField()){
                         fac_id = processFormField(item,outNet);
                     } else {
-                        if (null != fac_id)
-                            processUploadedField(item,outNet,fac_id);
+                        if (null != fac_id){
+                            myResult = processUploadedField(item,outNet,fac_id);
+                            PrintWriter respWriter = resp.getWriter();
+                            respWriter.write(myResult);//TODO 这个还没弄好
+                            respWriter.flush();
+                            respWriter.close();
+                        }
                     }
                 }
                 outNet.close();
@@ -84,6 +89,7 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
         }catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     private String processFormField(FileItem item, PrintWriter outNet) {
@@ -97,9 +103,16 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
         }
     }
 
-    private void processUploadedField(FileItem item, PrintWriter outNet, String fac_id){
+    /**
+     * 返回人体检测的字符串
+     * @param item
+     * @param outNet
+     * @param fac_id
+     * @return 成功与否都会返回{"state":"",```},具体格式与王大佬商定了
+     */
+    private String processUploadedField(FileItem item, PrintWriter outNet, String fac_id){
         long fileSize = item.getSize();
-        if(0 == fileSize) return;
+        if(0 == fileSize) return "";
         //我们以用户的唯一标识加硬件设备名称作为唯一ID存储图片
         //从数据库获取用户唯一标识
         String fromUserName = (String) myDbUtil.doDataSelect("SELECT * FROM facility WHERE fac_id = " + fac_id, "user_id");
@@ -107,9 +120,16 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
         File uploadedFile = new File(filePathDir + "/" + fromUserName + fac_name + ".jpg");
         try {
             item.write(uploadedFile);
+            //获取人体检测见过
+            String myBodyDetectResult = null;
+            String bodyDetectResult = BodyDetect.postRequestFrBodyDetect(filePathDir + "/" + fromUserName + fac_name + ".jpg");
+            myBodyDetectResult = "{\"state\":" + (null == bodyDetectResult?"0":("1"+ "," + bodyDetectResult))   +"}";
+            System.out.println(myBodyDetectResult);
+            return myBodyDetectResult;
         } catch (Exception e) {
             e.printStackTrace();
         }
         outNet.println("file is uploaded!");
+        return "";
     }
 }

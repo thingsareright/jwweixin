@@ -62,10 +62,14 @@ public class BodyDetect {
         try {
             String flag1 = "\"humanbody_rectangle\": {";
             String flag2 = "}";
-            temp = result.substring(result.indexOf(flag1) + flag1.length());
+            if (result.indexOf(flag1) <= 0)
+                return null;
+            temp = result.substring(result.indexOf(flag1) + flag1.length() -1);
+            if (temp == null || temp.equals(""))
+                return null;
             myResult = temp.substring(1,temp.indexOf(flag2));
         } catch (Exception e) {
-            return "false";
+            return null;
         }
 
         return myResult;
