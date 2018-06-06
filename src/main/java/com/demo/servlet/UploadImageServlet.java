@@ -21,7 +21,7 @@ import java.util.List;
 
 public class UploadImageServlet extends javax.servlet.http.HttpServlet {
 
-    public static final String UPLOADED_IMAGE_DIR = "G:/";
+    public static final String UPLOADED_IMAGE_DIR = "C:/image/";
     private String filePathDir;     //这里存储的是文件夹相对web应用跟目录的路径，目的是为了固定相对路径
     private String tempDir; //临时路径
     private int fileMaxSize;   //允许上传

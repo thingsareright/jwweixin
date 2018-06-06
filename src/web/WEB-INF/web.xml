@@ -40,11 +40,11 @@
         <servlet-class>com.demo.servlet.UploadImageServlet</servlet-class>
         <init-param>
             <param-name>filePathDir</param-name>
-            <param-value>image</param-value>
+            <param-value>jwweixin</param-value>
         </init-param>
         <init-param>
             <param-name>tempDir</param-name>
-            <param-value>tempDir</param-value>
+            <param-value>jwtemp</param-value>
         </init-param>
         <init-param>
             <param-name>fileMaxSize</param-name>

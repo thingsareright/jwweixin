@@ -7,8 +7,8 @@ import java.sql.*;
  */
 public class MyDatabaseUtil  {
     private final String dbUrl = "jdbc:mysql://localhost:3306/jw_wechat?useSSL=false";
-    private final String dbUser = "root";
-    private final String dbPwd = "root";
+    private final String dbUser = "jwwechat";
+    private final String dbPwd = "Zhang9971123mll!";
 
     public MyDatabaseUtil(){
         try {

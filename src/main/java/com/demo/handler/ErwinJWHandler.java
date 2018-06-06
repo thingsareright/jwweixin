@@ -86,12 +86,11 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
         } else if("help".equals(kindOfOrder)){
             return builder.buildResponseTextBean(HELP_MSG);
         } else if("picture".equals(kindOfOrder)){
-            //picture:fac
+            //pictureup:fac
             String filePath;
             filePath = doPictureAction(msgText, msgBean.getFromUserName());
             WeChatResponseTextBean media = builder.buildResponseTextBean(materialApi.addTempMedia(MaterialApi.IMAGE, new File(filePath)));
-            String tempMediaCode = media.getContent();
-            return builder.buildResponseImageBean(tempMediaCode);
+            return builder.buildResponseImageBean(media.getContent());
         } else if("face".equals(kindOfOrder)){
             //判断上一张照片是不是有人脸
             int hasFace = doFaceDetectAction(fromUserName, msgText);
