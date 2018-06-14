@@ -8,11 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a9c9786e-f1b1-4da3-a39d-ad29002e921b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/jwweixin_war_exploded/WEB-INF/classes/com/demo/servlet/UploadImageServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/jwweixin_war_exploded/WEB-INF/classes/com/demo/servlet/UploadImageServlet.class" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/servlet/FacilityServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/servlet/FacilityServlet.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/servlet/UploadImageServlet.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/servlet/UploadImageServlet.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/util/BodyDetect.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/util/BodyDetect.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/demo/servlet/UploadImageServlet.class" afterPath="$PROJECT_DIR$/target/classes/com/demo/servlet/UploadImageServlet.class" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/jwweixin_war_exploded/WEB-INF/classes/com/demo/handler/ErwinJWHandler.class" afterPath="$PROJECT_DIR$/out/artifacts/jwweixin_war_exploded/WEB-INF/classes/com/demo/handler/ErwinJWHandler.class" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/handler/ErwinJWHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/demo/handler/ErwinJWHandler.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/demo/handler/ErwinJWHandler.class" afterPath="$PROJECT_DIR$/target/classes/com/demo/handler/ErwinJWHandler.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,214 +29,82 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UploadImageServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/servlet/UploadImageServlet.java">
+      <file leaf-file-name="ErwinJWHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/handler/ErwinJWHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2415">
-              <caret line="123" column="49" lean-forward="false" selection-start-line="123" selection-start-column="49" selection-end-line="123" selection-end-column="49" />
+            <state relative-caret-position="118">
+              <caret line="198" column="35" lean-forward="true" selection-start-line="198" selection-start-column="35" selection-end-line="198" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BodyDetect.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/util/BodyDetect.java">
+      <file leaf-file-name="DefaultMateralApi.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/api/impl/DefaultMateralApi.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4117">
-              <caret line="231" column="20" lean-forward="false" selection-start-line="231" selection-start-column="20" selection-end-line="231" selection-end-column="20" />
+            <state relative-caret-position="19">
+              <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4019#4020#0" expanded="true" />
-                <element signature="e#4061#4062#0" expanded="true" />
-                <element signature="e#4242#4243#0" expanded="true" />
-                <element signature="e#4275#4276#0" expanded="true" />
-                <element signature="e#4326#4327#0" expanded="true" />
-                <element signature="e#4370#4371#0" expanded="true" />
-                <element signature="e#4629#4630#0" expanded="true" />
-                <element signature="e#4660#4661#0" expanded="true" />
-                <element signature="e#4708#4709#0" expanded="true" />
-                <element signature="e#4748#4749#0" expanded="true" />
-                <element signature="e#4785#4786#0" expanded="true" />
-                <element signature="e#4818#4819#0" expanded="true" />
-                <element signature="e#4870#4871#0" expanded="true" />
-                <element signature="e#4914#4915#0" expanded="true" />
-                <element signature="e#4947#4948#0" expanded="true" />
-                <element signature="e#4979#4980#0" expanded="true" />
-                <element signature="e#5026#5027#0" expanded="true" />
-                <element signature="e#5068#5069#0" expanded="true" />
-                <element signature="e#5125#5126#0" expanded="true" />
-                <element signature="e#5159#5160#0" expanded="true" />
-                <element signature="e#5232#5233#0" expanded="true" />
-                <element signature="e#5278#5279#0" expanded="true" />
-                <element signature="e#5734#5735#0" expanded="true" />
-                <element signature="e#5762#5763#0" expanded="true" />
-                <element signature="e#5801#5802#0" expanded="true" />
-                <element signature="e#5835#5836#0" expanded="true" />
-                <element signature="e#5862#5863#0" expanded="true" />
-                <element signature="e#5888#5889#0" expanded="true" />
-                <element signature="e#5923#5924#0" expanded="true" />
-                <element signature="e#5953#5954#0" expanded="true" />
-                <element signature="e#5983#5984#0" expanded="true" />
-                <element signature="e#6012#6013#0" expanded="true" />
-                <element signature="e#6053#6054#0" expanded="true" />
-                <element signature="e#6089#6090#0" expanded="true" />
-                <element signature="e#6117#6118#0" expanded="true" />
-                <element signature="e#6144#6145#0" expanded="true" />
-                <element signature="e#6181#6182#0" expanded="true" />
-                <element signature="e#6213#6214#0" expanded="true" />
-                <element signature="e#6242#6243#0" expanded="true" />
-                <element signature="e#6270#6271#0" expanded="true" />
-                <element signature="e#6309#6310#0" expanded="true" />
-                <element signature="e#6343#6344#0" expanded="true" />
-                <element signature="e#6438#6439#0" expanded="true" />
-                <element signature="e#6472#6473#0" expanded="true" />
-                <element signature="e#6501#6502#0" expanded="true" />
-                <element signature="e#6529#6530#0" expanded="true" />
-                <element signature="e#6568#6569#0" expanded="true" />
-                <element signature="e#6602#6603#0" expanded="true" />
+                <marker date="1525596631700" expanded="false" signature="0:104" ph="/.../" />
+                <marker date="1525596631700" expanded="false" signature="139:419" ph="..." />
+                <marker date="1525596631700" expanded="true" signature="508:515" ph="{}" />
+                <marker date="1525596631700" expanded="true" signature="577:1272" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="1321:2050" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FacilityServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/servlet/FacilityServlet.java">
+      <file leaf-file-name="SimpleMsgReceiveHandler.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/handler/impl/SimpleMsgReceiveHandler.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ErwinJWHandler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/handler/ErwinJWHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="219" column="64" lean-forward="true" selection-start-line="219" selection-start-column="64" selection-end-line="219" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1909">
-              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JSONObject.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/json/json/20160810/json-20160810.jar!/org/json/JSONObject.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19320">
-              <caret line="889" column="25" lean-forward="false" selection-start-line="889" selection-start-column="25" selection-end-line="889" selection-end-column="25" />
+            <state relative-caret-position="93">
+              <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
               <folding>
-                <marker date="1526701857970" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1526701857970" expanded="false" signature="132:604" ph="..." />
-                <marker date="1526701857970" expanded="false" signature="760:771" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="796:802" ph=" }" />
-                <marker date="1526701857970" expanded="true" signature="857:1087" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="1147:2406" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="2445:2857" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="2894:2949" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="3004:3318" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="3378:3424" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="3501:4530" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="4612:5031" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="5109:5548" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="5600:6172" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="6229:6569" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="6661:6920" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="6985:7493" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="7564:7833" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="7904:8173" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="8236:8545" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="8602:8904" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="8973:9218" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="9289:9537" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="9596:9897" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="9950:10318" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="10371:10896" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="10959:11192" ph="{...}" />
-                <marker date="1526701857970" expanded="false" signature="11228:11239" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="11272:11278" ph=" }" />
-                <marker date="1526701857970" expanded="true" signature="11345:12232" ph="{...}" />
-                <marker date="1526701857970" expanded="false" signature="12271:12282" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="12316:12322" ph=" }" />
-                <marker date="1526701857970" expanded="false" signature="12358:12369" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="12401:12407" ph=" }" />
-                <marker date="1526701857970" expanded="false" signature="12440:12451" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="12476:12482" ph=" }" />
-                <marker date="1526701857970" expanded="false" signature="12507:12518" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="12541:12547" ph=" }" />
-                <marker date="1526701857970" expanded="true" signature="12578:12784" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="12862:13466" ph="{...}" />
-                <marker date="1526701857970" expanded="false" signature="13501:13512" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="13558:13564" ph=" }" />
-                <marker date="1526701857970" expanded="false" signature="13634:13645" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="13689:13695" ph=" }" />
-                <marker date="1526701857970" expanded="true" signature="13782:14311" ph="{...}" />
-                <marker date="1526701857970" expanded="false" signature="14354:14365" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="14400:14406" ph=" }" />
-                <marker date="1526701857970" expanded="true" signature="14472:14612" ph="{...}" />
-                <marker date="1526701857970" expanded="false" signature="14653:14664" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="14703:14709" ph=" }" />
-                <marker date="1526701857970" expanded="true" signature="14784:14927" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="15002:15145" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="15208:15347" ph="{...}" />
-                <marker date="1526701857970" expanded="false" signature="15382:15393" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="15420:15426" ph=" }" />
-                <marker date="1526701857970" expanded="true" signature="15480:15616" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="15664:15766" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="15816:15935" ph="{...}" />
-                <marker date="1526701857970" expanded="false" signature="15972:15983" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="16012:16018" ph=" }" />
-                <marker date="1526701857970" expanded="true" signature="16075:16212" ph="{...}" />
-                <marker date="1526701857970" expanded="false" signature="16253:16264" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="16295:16301" ph=" }" />
-                <marker date="1526701857970" expanded="true" signature="16364:16481" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="16525:18177" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="18253:18352" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="18434:18517" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="18592:18672" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="18744:18825" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="18898:18976" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="19054:19138" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="19213:19538" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="19617:19864" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="19942:20059" ph="{...}" />
-                <marker date="1526701857970" expanded="false" signature="20104:20115" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="20169:20175" ph=" }" />
-                <marker date="1526701857970" expanded="true" signature="20224:20431" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="20479:20797" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="20874:22464" ph="{...}" />
-                <marker date="1526701857970" expanded="false" signature="22502:22513" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="22541:22547" ph=" }" />
-                <marker date="1526701857970" expanded="true" signature="22590:23925" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="23981:25307" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="25376:25829" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="25902:26204" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="26235:26363" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="26431:26593" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="26669:28082" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="28129:29687" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="29749:29797" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="29927:31455" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="31532:31622" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="31714:33272" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="33313:34104" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="34142:34445" ph="{...}" />
-                <marker date="1526701857970" expanded="true" signature="34167:34178" ph="{}" />
-                <marker date="1526701857970" expanded="false" signature="34218:34233" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="34245:34255" ph=" }" />
-                <marker date="1526701857970" expanded="false" signature="34301:34316" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="34356:34366" ph=" }" />
-                <marker date="1526701857970" expanded="false" signature="34400:34415" ph=" { " />
-                <marker date="1526701857970" expanded="false" signature="34429:34439" ph=" }" />
+                <marker date="1525596631700" expanded="false" signature="0:104" ph="/.../" />
+                <marker date="1525596631700" expanded="false" signature="143:574" ph="..." />
+                <marker date="1525596631700" expanded="true" signature="690:697" ph="{}" />
+                <marker date="1525596631700" expanded="true" signature="915:943" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="1053:1081" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="1191:1219" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="1339:1367" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="1483:1511" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="1619:1647" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MaterialApi.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/api/MaterialApi.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+              <folding>
+                <marker date="1525596631700" expanded="false" signature="0:104" ph="/.../" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResponseMsgBuilder.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/factory/ResponseMsgBuilder.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+              <folding>
+                <marker date="1525596631700" expanded="false" signature="0:104" ph="/.../" />
+                <marker date="1525596631700" expanded="false" signature="138:645" ph="..." />
+                <marker date="1525596631700" expanded="true" signature="814:941" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="1007:1211" ph="{...}" />
+                <marker date="1525596631700" expanded="false" signature="1253:1264" ph=" { " />
+                <marker date="1525596631700" expanded="false" signature="1274:1280" ph=" }" />
+                <marker date="1525596631700" expanded="true" signature="1354:1544" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="1620:1883" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="1959:2222" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="2332:2669" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="2820:3245" ph="{...}" />
+                <marker date="1525596631700" expanded="true" signature="3325:3535" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -286,7 +153,6 @@
         <option value="$PROJECT_DIR$/src/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/util/HttpUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/demo/handler/ErwinJWHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/util/MyDatabaseUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/util/JSONExchange.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/model/BodyDetectJson.java" />
@@ -296,6 +162,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/demo/servlet/UploadImageServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/util/BodyDetect.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/demo/servlet/FacilityServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/demo/handler/ErwinJWHandler.java" />
       </list>
     </option>
   </component>
@@ -365,6 +232,66 @@
             <path>
               <item name="jwweixin" type="b2602c69:ProjectViewProjectNode" />
               <item name="jwweixin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jwweixin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jwweixin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jwweixin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jwweixin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jwweixin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jwweixin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jwweixin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jwweixin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jwweixin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jwweixin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jwweixin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jwweixin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="servlet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jwweixin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jwweixin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jwweixin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jwweixin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -739,7 +666,7 @@
       <workItem from="1528455219162" duration="625000" />
       <workItem from="1528635770279" duration="2314000" />
       <workItem from="1528865934354" duration="1586000" />
-      <workItem from="1528959789431" duration="269000" />
+      <workItem from="1528959789431" duration="2296000" />
     </task>
     <task id="LOCAL-00001" summary="这一次主要是加入了基于JDBC的数据封装接口。">
       <created>1525704493770</created>
@@ -895,11 +822,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528303658784</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="加了个人体检测。">
+      <created>1528960087180</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1528960087181</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155013000" />
+    <option name="totallyTimeSpent" value="157040000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -915,7 +849,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7980769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48540705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -924,7 +858,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32718894" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2642089" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5253456" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33947772" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1013,24 +947,6 @@
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/demo/handler/ErwinJWHandler.java</url>
-          <line>90</line>
-          <properties />
-          <option name="timeStamp" value="109" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/demo/handler/ErwinJWHandler.java</url>
-          <line>91</line>
-          <properties />
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/demo/handler/ErwinJWHandler.java</url>
-          <line>92</line>
-          <properties />
-          <option name="timeStamp" value="111" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/demo/servlet/UploadImageServlet.java</url>
           <line>127</line>
           <properties />
@@ -1043,7 +959,7 @@
           <option name="timeStamp" value="126" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="142" />
+      <option name="time" value="146" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1052,7 +968,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/HTTPUtil/UploadImageUtil.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/timg.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1150,13 +1065,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/bean/response/WeChatResponseTextBean.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -1164,24 +1072,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/factory/ResponseMsgBuilder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/servlet/WeChatServlet.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/api/MaterialApi.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1474,28 +1368,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/api/impl/DefaultMateralApi.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding>
-            <marker date="1525596631700" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1525596631700" expanded="false" signature="139:419" ph="..." />
-            <marker date="1525596631700" expanded="true" signature="508:515" ph="{}" />
-            <marker date="1525596631700" expanded="true" signature="577:1272" ph="{...}" />
-            <marker date="1525596631700" expanded="true" signature="1321:2050" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/util/AuthService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="88" column="20" lean-forward="false" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/util/JSONExchange.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/util/HttpUtils.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1552,13 +1424,6 @@
         <state relative-caret-position="46">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/filter/CharacterFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1694,55 +1559,55 @@
         <state relative-caret-position="4117">
           <caret line="231" column="20" lean-forward="false" selection-start-line="231" selection-start-column="20" selection-end-line="231" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4019#4020#0" expanded="true" />
-            <element signature="e#4061#4062#0" expanded="true" />
-            <element signature="e#4242#4243#0" expanded="true" />
-            <element signature="e#4275#4276#0" expanded="true" />
-            <element signature="e#4326#4327#0" expanded="true" />
-            <element signature="e#4370#4371#0" expanded="true" />
-            <element signature="e#4629#4630#0" expanded="true" />
-            <element signature="e#4660#4661#0" expanded="true" />
-            <element signature="e#4708#4709#0" expanded="true" />
-            <element signature="e#4748#4749#0" expanded="true" />
-            <element signature="e#4785#4786#0" expanded="true" />
-            <element signature="e#4818#4819#0" expanded="true" />
-            <element signature="e#4870#4871#0" expanded="true" />
-            <element signature="e#4914#4915#0" expanded="true" />
-            <element signature="e#4947#4948#0" expanded="true" />
-            <element signature="e#4979#4980#0" expanded="true" />
-            <element signature="e#5026#5027#0" expanded="true" />
-            <element signature="e#5068#5069#0" expanded="true" />
-            <element signature="e#5125#5126#0" expanded="true" />
-            <element signature="e#5159#5160#0" expanded="true" />
-            <element signature="e#5232#5233#0" expanded="true" />
-            <element signature="e#5278#5279#0" expanded="true" />
-            <element signature="e#5734#5735#0" expanded="true" />
-            <element signature="e#5762#5763#0" expanded="true" />
-            <element signature="e#5801#5802#0" expanded="true" />
-            <element signature="e#5835#5836#0" expanded="true" />
-            <element signature="e#5862#5863#0" expanded="true" />
-            <element signature="e#5888#5889#0" expanded="true" />
-            <element signature="e#5923#5924#0" expanded="true" />
-            <element signature="e#5953#5954#0" expanded="true" />
-            <element signature="e#5983#5984#0" expanded="true" />
-            <element signature="e#6012#6013#0" expanded="true" />
-            <element signature="e#6053#6054#0" expanded="true" />
-            <element signature="e#6089#6090#0" expanded="true" />
-            <element signature="e#6117#6118#0" expanded="true" />
-            <element signature="e#6144#6145#0" expanded="true" />
-            <element signature="e#6181#6182#0" expanded="true" />
-            <element signature="e#6213#6214#0" expanded="true" />
-            <element signature="e#6242#6243#0" expanded="true" />
-            <element signature="e#6270#6271#0" expanded="true" />
-            <element signature="e#6309#6310#0" expanded="true" />
-            <element signature="e#6343#6344#0" expanded="true" />
-            <element signature="e#6438#6439#0" expanded="true" />
-            <element signature="e#6472#6473#0" expanded="true" />
-            <element signature="e#6501#6502#0" expanded="true" />
-            <element signature="e#6529#6530#0" expanded="true" />
-            <element signature="e#6568#6569#0" expanded="true" />
-            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#4019#4020#0" expanded="false" />
+            <element signature="e#4061#4062#0" expanded="false" />
+            <element signature="e#4242#4243#0" expanded="false" />
+            <element signature="e#4275#4276#0" expanded="false" />
+            <element signature="e#4326#4327#0" expanded="false" />
+            <element signature="e#4370#4371#0" expanded="false" />
+            <element signature="e#4629#4630#0" expanded="false" />
+            <element signature="e#4660#4661#0" expanded="false" />
+            <element signature="e#4708#4709#0" expanded="false" />
+            <element signature="e#4748#4749#0" expanded="false" />
+            <element signature="e#4785#4786#0" expanded="false" />
+            <element signature="e#4818#4819#0" expanded="false" />
+            <element signature="e#4870#4871#0" expanded="false" />
+            <element signature="e#4914#4915#0" expanded="false" />
+            <element signature="e#4947#4948#0" expanded="false" />
+            <element signature="e#4979#4980#0" expanded="false" />
+            <element signature="e#5026#5027#0" expanded="false" />
+            <element signature="e#5068#5069#0" expanded="false" />
+            <element signature="e#5125#5126#0" expanded="false" />
+            <element signature="e#5159#5160#0" expanded="false" />
+            <element signature="e#5232#5233#0" expanded="false" />
+            <element signature="e#5278#5279#0" expanded="false" />
+            <element signature="e#5734#5735#0" expanded="false" />
+            <element signature="e#5762#5763#0" expanded="false" />
+            <element signature="e#5801#5802#0" expanded="false" />
+            <element signature="e#5835#5836#0" expanded="false" />
+            <element signature="e#5862#5863#0" expanded="false" />
+            <element signature="e#5888#5889#0" expanded="false" />
+            <element signature="e#5923#5924#0" expanded="false" />
+            <element signature="e#5953#5954#0" expanded="false" />
+            <element signature="e#5983#5984#0" expanded="false" />
+            <element signature="e#6012#6013#0" expanded="false" />
+            <element signature="e#6053#6054#0" expanded="false" />
+            <element signature="e#6089#6090#0" expanded="false" />
+            <element signature="e#6117#6118#0" expanded="false" />
+            <element signature="e#6144#6145#0" expanded="false" />
+            <element signature="e#6181#6182#0" expanded="false" />
+            <element signature="e#6213#6214#0" expanded="false" />
+            <element signature="e#6242#6243#0" expanded="false" />
+            <element signature="e#6270#6271#0" expanded="false" />
+            <element signature="e#6309#6310#0" expanded="false" />
+            <element signature="e#6343#6344#0" expanded="false" />
+            <element signature="e#6438#6439#0" expanded="false" />
+            <element signature="e#6472#6473#0" expanded="false" />
+            <element signature="e#6501#6502#0" expanded="false" />
+            <element signature="e#6529#6530#0" expanded="false" />
+            <element signature="e#6568#6569#0" expanded="false" />
+            <element signature="e#6602#6603#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1763,10 +1628,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/filter/CharacterFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/util/AuthService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="37" column="47" lean-forward="true" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/factory/ResponseMsgBuilder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
+          <folding>
+            <marker date="1525596631700" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1525596631700" expanded="false" signature="138:645" ph="..." />
+            <marker date="1525596631700" expanded="true" signature="814:941" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="1007:1211" ph="{...}" />
+            <marker date="1525596631700" expanded="false" signature="1253:1264" ph=" { " />
+            <marker date="1525596631700" expanded="false" signature="1274:1280" ph=" }" />
+            <marker date="1525596631700" expanded="true" signature="1354:1544" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="1620:1883" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="1959:2222" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="2332:2669" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="2820:3245" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="3325:3535" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/handler/impl/SimpleMsgReceiveHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+          <folding>
+            <marker date="1525596631700" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1525596631700" expanded="false" signature="143:574" ph="..." />
+            <marker date="1525596631700" expanded="true" signature="690:697" ph="{}" />
+            <marker date="1525596631700" expanded="true" signature="915:943" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="1053:1081" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="1191:1219" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="1339:1367" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="1483:1511" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="1619:1647" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/api/MaterialApi.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding>
+            <marker date="1525596631700" expanded="false" signature="0:104" ph="/.../" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/jw/jw-core/2.0-SNAPSHOT/jw-core-2.0-SNAPSHOT.jar!/com/jw/api/impl/DefaultMateralApi.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding>
+            <marker date="1525596631700" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1525596631700" expanded="false" signature="139:419" ph="..." />
+            <marker date="1525596631700" expanded="true" signature="508:515" ph="{}" />
+            <marker date="1525596631700" expanded="true" signature="577:1272" ph="{...}" />
+            <marker date="1525596631700" expanded="true" signature="1321:2050" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/demo/handler/ErwinJWHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="219" column="64" lean-forward="true" selection-start-line="219" selection-start-column="64" selection-end-line="219" selection-end-column="64" />
+        <state relative-caret-position="118">
+          <caret line="198" column="35" lean-forward="true" selection-start-line="198" selection-start-column="35" selection-end-line="198" selection-end-column="35" />
           <folding />
         </state>
       </provider>

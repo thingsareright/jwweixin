@@ -25,7 +25,7 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
             + "绑定设备请输入：  bind:设备号:设备名\r\n" +
             "解除绑定设备请输入： unbind:设备名\r\n" +
             "查看某设备拍的最新的照片：picture:fac   picture:设备名\r\n" +
-            "更改设备状态请输入： order:fac:1   order:设备名:命令状态\r\n" +
+            "更改设备状态请输入： order:fac:kind:1   order:设备名:设备上的设备:命令状态\r\n" +
             "设备状态代码意义：\r\n" +
                     "0：关闭红外和摄像头\r\n" +
             "1:开启红外关闭摄像头\r\n" +
@@ -42,9 +42,8 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
             msgText = msgText.toLowerCase();
             kindOfOrder = msgText.substring(0, msgText.indexOf(':'));//用户冒号前的指令信息
         } catch (Exception e){
-            return builder.buildResponseTextBean("没有冒号啊小伙子小姑娘，我给你讲讲道理：\r\n" + HELP_MSG);
+            return builder.buildResponseTextBean(HELP_MSG);
         }
-
 
         if("register".equals(kindOfOrder)){
             int flag = doRegisterAction(fromUserName);
@@ -89,13 +88,18 @@ public class ErwinJWHandler extends DefaultMsgReceiveHandler{
             //pictureup:fac
             String filePath;
             filePath = doPictureAction(msgText, msgBean.getFromUserName());
-            WeChatResponseTextBean media = builder.buildResponseTextBean(materialApi.addTempMedia(MaterialApi.IMAGE, new File(filePath)));
+            WeChatResponseTextBean media = null;
+            try{
+                media = builder.buildResponseTextBean(materialApi.addTempMedia(MaterialApi.IMAGE, new File(filePath)));
+            }catch (RuntimeException e){
+                System.out.println(e.getMessage());
+                return builder.buildResponseTextBean("您所在网络的IP地址，不在微信白名单内" + e.getMessage());
+            }
             return builder.buildResponseImageBean(media.getContent());
         } else if("face".equals(kindOfOrder)){
             //判断上一张照片是不是有人脸
             int hasFace = doFaceDetectAction(fromUserName, msgText);
             int i = hasFace;
-
             if (0 != hasFace)
                 return builder.buildResponseTextBean("有" + hasFace + "张人脸！");
             return builder.buildResponseTextBean("没有人脸！！！");
