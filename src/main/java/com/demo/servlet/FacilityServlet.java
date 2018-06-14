@@ -2,9 +2,6 @@ package com.demo.servlet;
 
 import com.demo.util.MyDatabaseUtil;
 import com.demo.util.MyDbUtil;
-import com.demo.util.WeatherUtil;
-import org.apache.log4j.Logger;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +23,6 @@ public class FacilityServlet extends HttpServlet {
     private final String FAC_CAMERA_STATE = "fac_camera_state"; //设备摄像头开关状态
     private final String FAC_EM_STATE = "fac_em_state"; //设备电机开关状态
 
-    private final Logger logger = Logger.getLogger(FacilityServlet.class);
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.doPost(request, response);
@@ -43,26 +39,21 @@ public class FacilityServlet extends HttpServlet {
             whatToDoForFac = doSelectForWhatToDo(fac_id);
             OutputStream stream = response.getOutputStream();
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(stream));
-            logger.info(stream);
             for (int s: whatToDoForFac) {
                 bufferedWriter.write(s + "");
             }
             bufferedWriter.flush();
             stream.close();
         } catch (NumberFormatException e) {
-            logger.error("Facid: " + fac_id + " has an error.", e);
             e.printStackTrace();
         } catch (Exception e){
             e.printStackTrace();
-            logger.error("Facid: " + fac_id + " has an error.", e);
         } finally{
-            logger.info("Facid: " + fac_id + " has a request!");
         }
     }
 
     private int[] doSelectForWhatToDo(String fac_id) {
         String sql = "SELECT * FROM facility WHERE fac_id = " + fac_id + "";
-        logger.info(sql);
         MyDbUtil myDbUtil = new MyDatabaseUtil().getMyDaUtilImpl();
         int[] ints = new int[5];
         try {

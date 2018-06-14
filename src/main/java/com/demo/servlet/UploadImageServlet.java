@@ -121,15 +121,12 @@ public class UploadImageServlet extends javax.servlet.http.HttpServlet {
         try {
             item.write(uploadedFile);
             //获取人体检测见过
-            String myBodyDetectResult = null;
-            String bodyDetectResult = BodyDetect.postRequestFrBodyDetect(filePathDir + "/" + fromUserName + fac_name + ".jpg");
-            myBodyDetectResult = "{\"state\":" + (null == bodyDetectResult?"0":("1"+ "," + bodyDetectResult))   +"}";
-            System.out.println(myBodyDetectResult);
-            return myBodyDetectResult;
+            String bodyDetectResult = BodyDetect.postRequestForBodyDetect(filePathDir + "/" + fromUserName + fac_name + ".jpg");
+            System.out.println(bodyDetectResult);
+            return bodyDetectResult;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        outNet.println("file is uploaded!");
         return "";
     }
 }
